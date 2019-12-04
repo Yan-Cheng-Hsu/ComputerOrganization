@@ -2,7 +2,6 @@
 
 module InstructionMemory(instruction, pc, rst) ;
 	output [31:0]instruction;
-	reg [31:0]instruction;
 	input pc, rst;
 
 	reg [31:0]instruction_memory[63:0];
@@ -14,7 +13,7 @@ module InstructionMemory(instruction, pc, rst) ;
 
 
 	integer k;
-	always @(posedge RST)
+	always @(posedge rst)
 	begin	
 		instruction_memory[0] <= 32'b001000_00000_10000_0000000000010101;
 		instruction_memory[1] <= 32'b001000_00000_10001_0000000000010111;
@@ -31,9 +30,8 @@ module InstructionMemory(instruction, pc, rst) ;
 		instruction_memory[12] <= 32'b000000_10100_01000_01001_00000_100000;
 		instruction_memory[13] <= 32'b000010_00000000000000000000000110;
 		for (k=14; k<64; k=k+1) begin 
-			memory[k] <= 32'b0;
+			instruction_memory[k] <= 32'b0;
 		end	
-
 
 	end
 
