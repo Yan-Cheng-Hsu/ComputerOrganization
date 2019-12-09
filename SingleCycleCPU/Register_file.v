@@ -13,8 +13,8 @@ reg [31:0] Registers[31:0];
 
 integer i;
 
-assign READ_DATA_1 =  Registers[READ_ADDR_1];
-assign READ_DATA_2 =  Registers[READ_ADDR_2];
+assign Read_data_1 =  Registers[Read_address_1];
+assign Read_data_2 =  Registers[Read_address_2];
 
 always@(posedge CLK or posedge RST) begin
 	if(RST)begin
@@ -22,7 +22,7 @@ always@(posedge CLK or posedge RST) begin
 			Registers[i] <= 32'b0;
 	end
 	else begin
-		if (RegWrite==1'b1 && WRITE_ADDR!=0)
+		if ( RegWrite==1'b1 && Write_address!=0 )
 			Registers[Write_address] <= Write_data;
 		else
 			Registers[Write_address] <= Registers[Write_address];

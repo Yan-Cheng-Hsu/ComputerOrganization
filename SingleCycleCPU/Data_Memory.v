@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module Data_Memory (
-  output [31:0] Read_data,      // Output of Memory Address Contents
+  output reg [31:0] Read_data,      // Output of Memory Address Contents
   input [31:0] Address,          // Memory Address
   input [31:0] Write_data,    // Memory Address Contents
   input MemWrite, MemRead,
@@ -10,7 +10,7 @@ module Data_Memory (
 );
 
   reg [31:0] memory[0:63];  // 64 words of 32-bit memory
-  reg [31:0] Read_data;
+  //reg [31:0] Read_data;
   //assign Read_data = memory[Address] ;
 
 

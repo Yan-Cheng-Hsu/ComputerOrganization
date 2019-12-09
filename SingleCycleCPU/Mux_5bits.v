@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module	Mux_5bits(Mux_5bits_out, Mux_5bits_in0, Mux_5bits_in1, RegDst);
+module Mux_5bits(Mux_5bits_out, Mux_5bits_in0, Mux_5bits_in1, RegDst);
 
 	output [4:0]Mux_5bits_out;
 	reg [4:0]Mux_5bits_out;

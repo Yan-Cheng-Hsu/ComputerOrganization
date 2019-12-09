@@ -18,7 +18,7 @@ module CPU_SingleCycle (PC_OUT, CLK, RST) ;
 	InstructionMemory IM(.instruction(INSTRUCTION), .pc(PC_OUT), .rst(RST)) ;
 	Control CONTROL( .RegDst(REGDST), .ALUSrc(ALUSRC), .MemtoReg(MEMTOREG), .RegWrite(REGWRITE), 
 					.MemRead(MEMREAD), .MemWrite(MEMWRITE), .Branch(BRANCH), .Jump(JUMP), .ALUOp(ALUOP), .OP_Code(INSTRUCTION[31:26]) ) ;
-	Mux_5bits MUX_5(.Mux_5bits_out(WRITE_ADDRESS), .Mux_5bits_in0(INSTRUCTION[20:16]), .Mux_5bits_in1(INSTRUCTION[15:11]), .SEL(REGDST)) ; 
+	Mux_5bits MUX_5(.Mux_5bits_out(WRITE_ADDRESS), .Mux_5bits_in0(INSTRUCTION[20:16]), .Mux_5bits_in1(INSTRUCTION[15:11]), .RegDst(REGDST)) ; 
 
 	Register_file RF(.Read_data_1(READ_DATA_1), .Read_data_2(READ_DATA_2), .Read_address_1(INSTRUCTION[25:21]), .Read_address_2(INSTRUCTION[20:16]), 
 		.Write_address(WRITE_ADDRESS), .Write_data(WRITE_DATA), .RegWrite(REGWRITE), .CLK(CLK),.RST(RST) );   //   1 

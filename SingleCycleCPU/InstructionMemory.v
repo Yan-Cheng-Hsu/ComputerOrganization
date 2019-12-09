@@ -2,7 +2,8 @@
 
 module InstructionMemory(instruction, pc, rst) ;
 	output [31:0]instruction;
-	input pc, rst;
+	input [31:0]pc;
+	input rst;
 
 	reg [31:0]instruction_memory[63:0];
 
