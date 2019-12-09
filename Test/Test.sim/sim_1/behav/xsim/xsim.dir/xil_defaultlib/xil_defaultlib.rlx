@@ -1,0 +1,21 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+D:/Programming_test/ComputerOrganization/Test/Test.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sim_1/new/CPU_SingleCycle_tb.v,1575720321,verilog,,,,CPU_SingleCycle_tb,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU.v,1575458103,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU_Control.v,,ALU,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU_Control.v,1575457208,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Add_4.v,,ALU_Control,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Add_4.v,1575450133,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/CPU_SingleCycle.v,,Add_4,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/CPU_SingleCycle.v,1575723209,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Control.v,,CPU_SingleCycle,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Control.v,1575457208,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Data_Memory.v,,Control,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Data_Memory.v,1575466012,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/InstructionMemory.v,,Data_Memory,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/InstructionMemory.v,1575456789,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/JAdd.v,,InstructionMemory,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/JAdd.v,1575450518,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_32bits.v,,JAdd,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_32bits.v,1575458103,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_5bits.v,,Mux_32Bits,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_5bits.v,1575455685,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/PC.v,,Mux_5bits,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/PC.v,1575452742,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Register_file.v,,PC,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Register_file.v,1575719300,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_2.v,,Register_file,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_2.v,1575453444,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_26to28.v,,ShiftLeft_2,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_26to28.v,1575465401,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/SignExtend.v,,ShiftLeft_26to28,,,,,,,,
+D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/SignExtend.v,1575719320,verilog,,D:/Programming_test/ComputerOrganization/Test/Test.srcs/sim_1/new/CPU_SingleCycle_tb.v,,SignExtend,,,,,,,,

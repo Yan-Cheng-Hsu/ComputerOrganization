@@ -1,0 +1,4 @@
+ERROR: Exception caught trying to open file D:\Programming_test\ComputerOrganization\Test\Test.runs\synth_1/runme.log
+	Exception name: Error
+	Exception error code: 70
+	Exception message: 沒有使用權限

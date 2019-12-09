@@ -1,0 +1,33 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU_Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Add_4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Add_4
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/CPU_SingleCycle.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU_SingleCycle
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Data_Memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_Memory
+WARNING: [VRFC 10-3676] redeclaration of ansi port 'Read_data' is not allowed [D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Data_Memory.v:13]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/JAdd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module JAdd
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_32bits.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mux_32Bits
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_5bits.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mux_5bits
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/PC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Register_file.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Register_file
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ShiftLeft_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_26to28.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ShiftLeft_26to28
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/SignExtend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programming_test/ComputerOrganization/Test/Test.srcs/sim_1/new/CPU_SingleCycle_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU_SingleCycle_tb

@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param chipscope.maxJobs 1
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -30,8 +29,23 @@ set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.4 [current_project]
 set_property ip_output_repo d:/Programming_test/ComputerOrganization/Test/Test.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_mem D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/a.mem
-read_verilog -library xil_defaultlib D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Test.v
+read_verilog -library xil_defaultlib {
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ALU_Control.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Add_4.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Control.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Data_Memory.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/InstructionMemory.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/JAdd.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_32bits.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Mux_5bits.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/PC.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/Register_file.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_2.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/ShiftLeft_26to28.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/SignExtend.v
+  D:/Programming_test/ComputerOrganization/Test/Test.srcs/sources_1/new/CPU_SingleCycle.v
+}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -43,12 +57,12 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
-synth_design -top Test -part xc7z020clg484-1
+synth_design -top CPU_SingleCycle -part xc7z020clg484-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef Test.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file Test_utilization_synth.rpt -pb Test_utilization_synth.pb"
+write_checkpoint -force -noxdef CPU_SingleCycle.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file CPU_SingleCycle_utilization_synth.rpt -pb CPU_SingleCycle_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]
