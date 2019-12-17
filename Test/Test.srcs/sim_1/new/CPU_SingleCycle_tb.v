@@ -33,6 +33,8 @@ end
 
 initial 
 begin
+RST = 1'b0;
+#20
 RST = 1'b1;
 #150 RST = 1'b0;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1575779402">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1576061799">
   <File Type="PA-TCL" Name="CPU_SingleCycle.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="CPU_SingleCycle_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="CPU_SingleCycle_reports.tcl"/>
