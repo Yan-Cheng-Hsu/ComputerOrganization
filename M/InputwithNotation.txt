@@ -1,0 +1,23 @@
+
+addi $s0, $zero, 10      #Reg[16] = 10 
+addi $s1, $zero, 25      #Reg[17] = 25 
+addi $t0, $zero, 7       #Reg[8] = 7 
+addi $t1, $zero, 8       #Reg[9] = 8
+addi $t2, $zero, 1       #Reg[10] = 1   
+sub $s2, $s1, $s0        #Reg[18] = Reg[17] - Reg[16] = 15
+add $s3, $s1, $s0        #Reg[19] = Reg[17] + Reg[16] = 35 
+sw  $s1, 4($s0)          #Mem[Reg[16]+4/4] = Mem[11] = 25  
+and $t2, $t1, $t0        #Reg[10] = Reg[9] & Reg[8] bitwisely = 8
+or  $t3, $t0, $t1        #Reg[11] = Reg[9] | Reg[8] bitwisely =15 
+slt $s4, $s0, $s1        #Reg[20] = 1, because Reg[16] = 10 <　Reg[17] = 25　
+lw  $s5, 4($s0)          #Reg[21] = Mem[Reg[16]+4/4] = Mem[11] = 25 
+beq $zero, $zero, Label  #Branch to L, since 0 = 0
+addi $t4, $zero, 30      #Reg[12] = 30 
+addi $t4, $zero, 30      #Reg[12] = 30 
+addi $t4, $zero, 30      #Reg[12] = 30  
+addi $t4, $zero, 30      #Reg[12] = 30 #due to branch hazard, branch occurs here
+addi $t4, $zero, 30      #Reg[12] = 30 
+addi $t4, $zero, 30      #Reg[12] = 30 
+addi $t4, $zero, 30      #Reg[12] = 30 
+addi $t4, $zero, 30      #Reg[12] = 30 
+Label: 

@@ -1,0 +1,23 @@
+addi $s0, $zero, 10       
+addi $s1, $zero, 25       
+addi $t0, $zero, 7        
+addi $t1, $zero, 8       
+addi $t2, $zero, 1          
+sub $s2, $s1, $s0       
+add $s3, $s1, $s0        
+sw  $s1, 4($s0)            
+and $t2, $t1, $t0        
+or  $t3, $t0, $t1         
+slt $s4, $s0, $s1        　
+lw  $s5, 4($s0)           
+beq $zero, $zero, Label  
+addi $t4, $zero, 30       
+addi $t4, $zero, 30       
+addi $t4, $zero, 30        
+addi $t4, $zero, 30      
+addi $t4, $zero, 30      
+addi $t4, $zero, 30      
+addi $t4, $zero, 30       
+addi $t4, $zero, 30 
+      
+Label: 

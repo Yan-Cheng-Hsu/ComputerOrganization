@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Dec 23 14:01:11 2019
+# Process ID: 6636
+# Current directory: D:/Programming_test/ComputerOrganization/PipelinedStructureTesting/PipelinedStructureTesting.runs/synth_1
+# Command line: vivado.exe -log PipelinedStructure_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PipelinedStructure_tb.tcl
+# Log file: D:/Programming_test/ComputerOrganization/PipelinedStructureTesting/PipelinedStructureTesting.runs/synth_1/PipelinedStructure_tb.vds
+# Journal file: D:/Programming_test/ComputerOrganization/PipelinedStructureTesting/PipelinedStructureTesting.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source PipelinedStructure_tb.tcl -notrace
