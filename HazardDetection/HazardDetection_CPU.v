@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module PipelinedStructure (IF_PC_OUT, CLK, RST) ;
+module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
     output[31:0]IF_PC_OUT;
     input CLK, RST;
     
