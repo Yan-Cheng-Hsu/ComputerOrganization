@@ -48,10 +48,12 @@ module PipelinedStructure (IF_PC_OUT, CLK, RST) ;
     wire [3:0]EX_ALU_CONTROL;
     wire EX_ZERO;
     wire [4:0]EX_WRITE_ADDRESS;
+	 wire [31:0] EX_ALU_IN0;
+	 assign EX_ALU_IN0 = (EX_MEMREAD | EX_MEMWRITE) ? EX_REGISTER_READ_DATA_1<<2 : EX_REGISTER_READ_DATA_1;
 
     JAdd Add_1(.jadd_out(EX_ADD_RESULT), .jadd_in1(EX_ADDPC), .jadd_in2(EX_SHIFT_LEFT_OUT) ) ;
     ShiftLeft_2 SL_1( .shift_left_2_out(EX_SHIFT_LEFT_OUT), .shift_left_2_in(EX_SIGNEXTEND_OUT) ) ;
-    ALU ALU_1(.ALU_result(EX_ALU_RESULT), .Zero(EX_ZERO), .ALU_in0(EX_REGISTER_READ_DATA_1), .ALU_in1(EX_MUX_ALU), .ALU_Control(EX_ALU_CONTROL) ) ; 
+    ALU ALU_1(.ALU_result(EX_ALU_RESULT), .Zero(EX_ZERO), .ALU_in0(EX_ALU_IN0), .ALU_in1(EX_MUX_ALU), .ALU_Control(EX_ALU_CONTROL) ) ; 
     Mux_32Bits Mux32_1(.Mux_32bits_out(EX_MUX_ALU), .Mux_32bits_in0(EX_REGISTER_READ_DATA_2), .Mux_32bits_in1(EX_SIGNEXTEND_OUT), .Sel(EX_ALUSRC) ) ;
     Mux_5bits Mux5_1(.Mux_5bits_out(EX_WRITE_ADDRESS), .Mux_5bits_in0(EX_RT), .Mux_5bits_in1(EX_RD), .RegDst(EX_REGDST)) ; 
 	ALU_Control ALU_control_1( .ALU_Control(EX_ALU_CONTROL), .ALU_OP(EX_ALUOP), .Function_Field(EX_SIGNEXTEND_OUT[5:0]) ) ; 

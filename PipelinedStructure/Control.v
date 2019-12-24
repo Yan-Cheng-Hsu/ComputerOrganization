@@ -47,7 +47,7 @@ module Control ( RegDst, Jump, Branch, MemRead, MemtoReg, ALUOp, MemWrite, ALUSr
 			MemRead = 1'b0 ;
 			MemtoReg = 1'b1 ;
 			ALUOp = 2'b00 ;
-			MemWrite = 1'b1 ;
+			MemWrite = 1'b0 ;
 			ALUSrc = 1'b1 ;
 			RegWrite = 1'b1 ;
 		end 
