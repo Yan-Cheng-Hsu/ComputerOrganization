@@ -7,7 +7,7 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
     //IF
     wire [31:0]IF_PC_OUT, IF_PC_IN, IF_INSTRUCTION, IF_ADDPC;
     wire IF_PCWRITE;//HAZARD ADDED
-	PC ProgramCounter(.PC_out(IF_PC_OUT), .PC_in(IF_PC_IN), .PCWrite(IF_PCWRITE), .clk(CLK), .rst(RST));
+	PC_withWriteEnable ProgramCounter(.PC_out(IF_PC_OUT), .PC_in(IF_PC_IN), .PCWrite(IF_PCWRITE), .clk(CLK), .rst(RST));
 	InstructionMemory IM(.instruction(IF_INSTRUCTION), .pc(IF_PC_OUT), .rst(RST)) ; 
     Add_4 Add_4_1(.add_4_out(IF_ADDPC), .add_4_in(IF_PC_OUT));
 
@@ -17,7 +17,7 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
 	//IF-ID REGISTER
     wire [31:0]ID_ADDPC, ID_INSTRUCTION;
     wire IF_ID_WRITE;//HAZARD ADDED
-	IF_ID_Register IF_ID_Reg(.PC_4_out(ID_ADDPC), .Instruction_out(ID_INSTRUCTION), .PC_4_in(IF_ADDPC), .Instruction_in(IF_INSTRUCTION), .IF_ID_Write(IF_ID_WRITE), .clk(CLK), .rst(RST));
+	IF_ID_Register_withWriteEnable IF_ID_Reg(.PC_4_out(ID_ADDPC), .Instruction_out(ID_INSTRUCTION), .PC_4_in(IF_ADDPC), .Instruction_in(IF_INSTRUCTION), .IF_ID_Write(IF_ID_WRITE), .clk(CLK), .rst(RST));
 
 
 
@@ -57,7 +57,7 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
     wire [31:0]EX_ADDPC, EX_REGISTER_READ_DATA_1, EX_REGISTER_READ_DATA_2, EX_SIGNEXTEND_OUT;
     wire [4:0]EX_RT, EX_RD;
     wire [4:0]EX_RS;//HAZARD ADDED
-	ID_EX_Register ID_EX_Reg(.RegWrite_out(EX_REGWRITE), .MemtoReg_out(EX_MEMTOREG), .Branch_out(EX_BRANCH), .MemRead_out(EX_MEMREAD),
+	ID_EX_Register_withRs ID_EX_Reg(.RegWrite_out(EX_REGWRITE), .MemtoReg_out(EX_MEMTOREG), .Branch_out(EX_BRANCH), .MemRead_out(EX_MEMREAD),
 	 .MemWrite_out(EX_MEMWRITE), .ALUSrc_out(EX_ALUSRC), .RegDst_out(EX_REGDST), .ALUop_out(EX_ALUOP), 
 	 .PC_4_out(EX_ADDPC), .Read_Data_1_out(EX_REGISTER_READ_DATA_1), .Read_Data_2_out(EX_REGISTER_READ_DATA_2), .SignExtend_out(EX_SIGNEXTEND_OUT), .Rt_out(EX_RT), .Rd_out(EX_RD), .Rs_out(EX_RS),//HAZARD ADDED
 	.RegWrite_in(ID_REGWRITE), .MemtoReg_in(ID_MEMTOREG), .Branch_in(ID_BRANCH), .MemRead_in(ID_MEMREAD), .MemWrite_in(ID_MEMWRITE), .RegDst_in(ID_REGDST), .ALUSrc_in(ID_ALUSRC), .ALUop_in(ID_ALUOP), 
@@ -104,7 +104,7 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
 
     //HARARD ADDED OR MODIFIED
     wire [31:0]EX_MUX_3INPUTS_1_OUT, EX_MUX_3INPUTS_2_OUT;//HAZARD ADDED
-    wire FORWARDA, FORWARDB;//HAZARD ADDED
+    wire [1:0]FORWARDA, FORWARDB;//HAZARD ADDED
 
     Mux_32Bits_3input Mux_3inputs_1( .Mux_out(EX_MUX_3INPUTS_1_OUT), .Mux_in0(EX_REGISTER_READ_DATA_1), 
     .Mux_in1(ID_WRITE_DATA), .Mux_in2(MEM_DATAMEMORY_ADDRESS), .Mux_Sel(FORWARDA) ) ;//HAZARD ADDED
@@ -112,8 +112,11 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
     Mux_32Bits_3input Mux_3inputs_2( .Mux_out(EX_MUX_3INPUTS_2_OUT), .Mux_in0(EX_REGISTER_READ_DATA_2), 
     .Mux_in1(ID_WRITE_DATA), .Mux_in2(MEM_DATAMEMORY_ADDRESS), .Mux_Sel(FORWARDB) ) ;//HAZARD ADDED
 
+    wire [31:0] EX_ALU_IN0;
+	 assign EX_ALU_IN0 = (EX_MEMREAD | EX_MEMWRITE) ? EX_MUX_3INPUTS_1_OUT<<2 : EX_MUX_3INPUTS_1_OUT;
+
     //HAZARD ADDED
-    ALU ALU_1(.ALU_result(EX_ALU_RESULT), .Zero(EX_ZERO), .ALU_in0(EX_MUX_3INPUTS_1_OUT), .ALU_in1(EX_MUX_ALU), .ALU_Control(EX_ALU_CONTROL) ) ; 
+    ALU ALU_1(.ALU_result(EX_ALU_RESULT), .Zero(EX_ZERO), .ALU_in0(EX_ALU_IN0), .ALU_in1(EX_MUX_ALU), .ALU_Control(EX_ALU_CONTROL) ) ; 
     Mux_32Bits Mux32_1(.Mux_32bits_out(EX_MUX_ALU), .Mux_32bits_in0(EX_MUX_3INPUTS_2_OUT), .Mux_32bits_in1(EX_SIGNEXTEND_OUT), .Sel(EX_ALUSRC) ) ;
      
 	 
@@ -123,7 +126,7 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
 	EX_MEM_Register EX_MEM_Reg(.RegWrite_out(MEM_REGWRITE), .MemtoReg_out(MEM_MEMTOREG), .Branch_out(MEM_BRANCH), .MemRead_out(MEM_MEMREAD), . MemWrite_out(MEM_MEMWRITE),
 	.Add_Result_out(MEM_ADDPC), .ALU_Result_out(MEM_DATAMEMORY_ADDRESS), .Read_Data_2_out(MEM_DATAMEMORY_WRITE_DATA), .Write_Addr_out(MEM_REG_WRITE_ADDRESS), .Zero_out(MEM_ZERO),
 	.clk(CLK), .rst(RST), .RegWrite_in(EX_REGWRITE), .MemtoReg_in(EX_MEMTOREG), .Branch_in(EX_BRANCH), .MemRead_in(EX_MEMREAD), .MemWrite_in(EX_MEMWRITE),
-	.Add_Result_in(EX_ADD_RESULT), .ALU_Result_in(EX_ALU_RESULT), .Read_Data_2_in(EX_REGISTER_READ_DATA_2), .Write_Addr_in(EX_WRITE_ADDRESS), .Zero_in(EX_ZERO));
+	.Add_Result_in(EX_ADD_RESULT), .ALU_Result_in(EX_ALU_RESULT), .Read_Data_2_in(EX_MUX_3INPUTS_2_OUT), .Write_Addr_in(EX_WRITE_ADDRESS), .Zero_in(EX_ZERO));
     
 
     //MEM
@@ -143,10 +146,10 @@ module HazardDetection_CPU (IF_PC_OUT, CLK, RST) ;
 
     //HAZARD DETECTION
     //FORWARDING UNIT
-    ForwardingUnit FW_1( .ForwardA(FORWARDA), .ForwordB(FORWARDB), .Ex_Rs(EX_RS), .Ex_Rt(EX_RT), .Mem_Rd(MEM_REG_WRITE_ADDRESS), 
+    ForwardingUnit FW_1( .ForwardA(FORWARDA), .ForwardB(FORWARDB), .Ex_Rs(EX_RS), .Ex_Rt(EX_RT), .Mem_Rd(MEM_REG_WRITE_ADDRESS), 
                         .Wb_Rd(ID_REGISTER_ADDRESS_FEEDBACK), .Mem_RegWrite(MEM_REGWRITE), .Wb_RegWrite(WB_REGWRITE) );
     //HAZARD DETECTION UNIT
     HazardDetectionUnit HD_1(.PCWrite(IF_PCWRITE), .IF_ID_Write(IF_ID_WRITE), .Control_Unit_Sel(CONTROL_UNIT_SEL), 
-    .Id_Rs(ID_INSTRUCTION[25:21]), .Id_Rt(ID_INSTRUCTION[20:16]), .Ex_Rt(EX_RT), Ex_MemRead(EX_MEMREAD) );
+    .Id_Rs(ID_INSTRUCTION[25:21]), .Id_Rt(ID_INSTRUCTION[20:16]), .Ex_Rt(EX_RT), .Ex_MemRead(EX_MEMREAD) );
 
 endmodule 

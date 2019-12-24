@@ -1,0 +1,11 @@
+addi $t1, $zero, 6 #Reg[9] = 6
+addi $t0, $zero, 1 #Reg[8] = 1
+add $t0, $t0, $t0  #Reg[8] = 2	 
+add $t0, $t0, $t0  #Reg[8] = 4
+sw $t0, 12($t0)	   #Mem[Reg[4]+12/4] = Mem[7] = 4
+add $t0, $t0, $t0  #Reg[8] = 8
+add $t0, $t0, $t0  #Reg[8] = 16
+add $t0, $t0, $t0  #Reg[8] = 32
+lw $t0, 4($t1)     #Reg[8] = Mem[Reg[9]+4/4] = Mem[7] = 4
+add $t0, $t0, $t0  #Reg[8] = 8
+sub $t0, $t0, $t0  #Reg[8] = 0

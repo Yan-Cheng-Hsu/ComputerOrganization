@@ -4,6 +4,7 @@ module PC_withWriteEnable(PC_out, PC_in, PCWrite, clk, rst);
 output [31:0]PC_out;
 reg [31:0]PC_out;
 input PCWrite, clk, rst;
+input [31:0]PC_in;
 
 always@(posedge clk or posedge rst)
 begin

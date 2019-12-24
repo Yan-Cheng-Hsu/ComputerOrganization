@@ -1,7 +1,7 @@
-module ForwardingUnit(ForwardA, ForwordB, Ex_Rs , Ex_Rt, Mem_Rd, Wb_Rd, Mem_RegWrite, Wb_RegWrite);
+module ForwardingUnit(ForwardA, ForwardB, Ex_Rs , Ex_Rt, Mem_Rd, Wb_Rd, Mem_RegWrite, Wb_RegWrite);
 
-output [1:0]ForwardA, ForwordB;
-reg [1:0]ForwardA, ForwordB;
+output [1:0]ForwardA, ForwardB;
+reg [1:0]ForwardA, ForwardB;
 input [4:0]Ex_Rs, Ex_Rt, Mem_Rd, Wb_Rd;
 input Mem_RegWrite, Wb_RegWrite;
 

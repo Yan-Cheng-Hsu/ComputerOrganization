@@ -1,4 +1,4 @@
-module IF_ID_Register (PC_4_out, Instruction_out, PC_4_in, Instruction_in, IF_ID_Write, clk, rst);
+module IF_ID_Register_withWriteEnable (PC_4_out, Instruction_out, PC_4_in, Instruction_in, IF_ID_Write, clk, rst);
 
 
 output [31:0]PC_4_out;

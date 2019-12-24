@@ -1,7 +1,7 @@
-module ID_EX_Register(RegWrite_out, MemtoReg_out, Branch_out, MemRead_out, MemWrite_out,ALUSrc_out, RegDst_out, ALUop_out, 
+module ID_EX_Register_withRs(RegWrite_out, MemtoReg_out, Branch_out, MemRead_out, MemWrite_out,ALUSrc_out, RegDst_out, ALUop_out, 
 	PC_4_out, Read_Data_1_out, Read_Data_2_out, SignExtend_out, Rt_out, Rd_out, Rs_out,
 	RegWrite_in, MemtoReg_in, Branch_in, MemRead_in, MemWrite_in, ALUSrc_in, RegDst_in, ALUop_in, 
-	PC_4_in, Read_Data_1_in, Read_Data_2_in, SignExtend_in, Rt_in, Rd_in, Rs_in clk, rst);
+	PC_4_in, Read_Data_1_in, Read_Data_2_in, SignExtend_in, Rt_in, Rd_in, Rs_in, clk, rst);
 
 
 

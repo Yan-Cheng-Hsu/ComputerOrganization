@@ -7,7 +7,8 @@ reg RegWrite_out, MemtoReg_out, Branch_out, MemRead_out, MemWrite_out,ALUSrc_out
 output [1:0]ALUop_out;
 reg [1:0]ALUop_out;
 
-input RegWrite_in, MemtoReg_in, Branch_in, MemRead_in, MemWrite_in,ALUSrc_in, RegDst_in, ALUop_in, Sel;
+input RegWrite_in, MemtoReg_in, Branch_in, MemRead_in, MemWrite_in,ALUSrc_in, RegDst_in, Sel;
+input [1:0]ALUop_in;
 
 always@(*)
 begin

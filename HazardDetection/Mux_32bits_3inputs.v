@@ -6,7 +6,8 @@ module Mux_32Bits_3input(Mux_out, Mux_in0, Mux_in1, Mux_in2, Mux_Sel) ;
 	input [31:0]Mux_in0, Mux_in1 ,Mux_in2;
 	input [1:0]Mux_Sel;
 
-	always@(*)begin
+	always@(*)
+	begin
 		if (Mux_Sel == 2'b00)begin
 			Mux_out = Mux_in0;
         end
@@ -19,5 +20,6 @@ module Mux_32Bits_3input(Mux_out, Mux_in0, Mux_in1, Mux_in2, Mux_Sel) ;
 		else begin   // Error
 			Mux_out = Mux_in0;
         end
+	end
 	
 endmodule
